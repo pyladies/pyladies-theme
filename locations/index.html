@@ -1,0 +1,47 @@
+{% extends "site-ui.html" %}
+{% block title %}Locations{% endblock %}
+{% block content %}
+
+<h1>PyLadies Locations</h1>
+    <div class="uk-grid">
+        {% for chapter in site.chapters %}
+        <div class="uk-width-medium-1-2 uk-width-small-1-1">
+            <div class="uk-panel uk-panel-box uk-panel-box-secondary uk-margin-bottom uk-text-center chapter-location">
+                <div class="chapter_location" data-meetup-id="{{chapter.meetup_id}}">
+                    <img src="../assets/images/{{chapter.image}}" alt="{{chapter.name}}" width="100" height="100" />
+                    <h3>
+                        {% if chapter.external_website %}
+                            <a href="{{chapter.website}}">
+                        {% else %}
+                            <a href="/locations/{{chapter.website}}">
+                        {% endif %}
+                        {{chapter.name}}</a></h3>
+                    <div>
+                        {% if chapter.website %}
+                        <a href="{{chapter.website}}" title="Website"><i class="uk-icon-link"></i></a>
+                        {% endif %}
+                        {% if chapter.email %}
+                        <a data-icon="&#59170;" href="mailto:{{chapter.email}}" title="Contact"><i class="uk-icon-envelope"></i></a>
+                        {% endif %}
+                        {% if chapter.facebook %}
+                        <a href="https://www.facebook.com/{{chapter.facebook}}" title"Facebook"><i class="uk-icon-facebook-square"></i></a>
+                        {% endif %}
+                        {% if chapter.github %}
+                        <a href="https://github.com/{{chapter.github}}" title"GitHub"><i class="uk-icon-github"></i></a>
+                        {% endif %}
+                        {% if chapter.twitter %}
+                        <a href="https://twitter.com/{{chapter.twitter}}" title="Twitter"><i class="uk-icon-twitter-square"></i></a>
+                        {% endif %}
+                        {% if chapter.meetup %}
+                        <a title="Meetup Link" href="http://www.meetup.com/{{chapter.meetup}}/"><i class="uk-icon-user"></i></a>
+                        {% endif %}
+                        {% if chapter.google_plus %}
+                        <a href="{{chapter.google_plus}}" title"Google+"><i class="uk-icon-google-plus-square"></i></a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock %}

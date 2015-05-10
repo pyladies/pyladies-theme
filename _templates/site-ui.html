@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    {% if site.title %}
+    <title>{% block title %}{% if title %}{{ title }} &ndash; {% endif %}{{ site.title }}{% if not title and site.subtitle %} &ndash; {{ site.subtitle }}{% endif %}{% endblock %}</title>{% endif %}
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <link rel="stylesheet" href="{{ get_asset('css/uikit.css') }}" media="screen" title="screen"/>
+    <link rel="stylesheet" href="{{ get_asset('css/main.css') }}" media="screen" title="screen"/>
+    <link rel="stylesheet" href="{{ get_asset('css/ribbons.css') }}" media="screen" title="screen"/>
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+    <link rel="shortcut icon" href="{{ get_asset('images/favicon.ico') }}" type="image/ico" />
+    <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="{{ get_url('feed.xml', true) }}" />
+    <script type="text/javascript" src="{{ get_asset('js/meetup_widget.js') }}"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var meetupIds = "{% for chapter in site.chapters -%}
+                               {%- if chapter.meetup_id -%}
+                                  {{ chapter.meetup_id }}
+                                  {%- if not loop.last -%},{% endif %}
+                               {%- endif %}
+                            {%- endfor -%}";
+            PyladiesMeetupWidget.addUpcomingMeetups(meetupIds);
+        });
+    </script>
+
+	{% block headjs %}
+	{% endblock %}
+	{% block style %}
+	{% endblock %}
+</head>
+
+<body>
+
+    <div class="ribbon right orange uk-hidden-small">
+      <a href="https://github.com/pyladies/pyladies">Contribute on GitHub</a>
+    </div>
+
+
+    <div class="uk-navbar main-navbar">
+        <div class="uk-container-center uk-container">
+            <a href="/" class="uk-navbar-brand"><img src="{{ get_asset('images/pyladies-logo-navy.png') }}"></a>
+            <div class="uk-navbar-flip ">
+                <ul class="uk-navbar-nav uk-hidden-small">
+                    <li><a href="{{ get_url('/') }}">Home</a></li>
+                    <li class="uk-parent" data-uk-dropdown="">
+                        <a href="{{ get_url('about/') }}">About</a>
+                        <div class="uk-dropdown uk-dropdown-navbar">
+                            <ul class="uk-nav uk-nav-navbar">
+                                <li><a href="{{ get_url('CodeOfConduct/') }}">Code of Conduct</a></li>
+                                <li><a href="{{ get_url('sponsor/') }}">Sponsor Us</a></li>
+                            </ul>
+                        </div>
+
+                    </li>
+                    <li><a href="{{ get_url('locations/') }}">Locations</a></li>
+                    <li><a href="{{ get_url('blog/') }}">Blog</a></li>
+                    <li><a href="{{ get_url('resources/') }}">Resources</a></li>
+                    <li><a href="mailto:info@pyladies.com?subject=Hello" id="contact-link">Contact</a></li>
+                </ul>
+                <a href="#off-menu" class="uk-navbar-toggle uk-visible-small" data-uk-offcanvas></a>
+            </div>
+        </div>
+    </div>
+
+    <div id="off-menu" class="uk-offcanvas">
+        <div class="uk-offcanvas-bar">
+            <ul class="uk-nav uk-nav-offcanvas">
+                <li><a href="{{ get_url('/') }}">Home</a></li>
+                <li><a href="{{ get_url('about/') }}">About</a><li></li>
+                <li><a href="{{ get_url('CodeOfConduct/') }}">Code of Conduct</a></li>
+                <li><a href="{{ get_url('sponsor/') }}">Sponsor Us</a></li>
+                <li><a href="{{ get_url('locations/') }}">Locations</a></li>
+                <li><a href="{{ get_url('blog/') }}">Blog</a></li>
+                <li><a href="{{ get_url('resources/') }}">Resources</a></li>
+                <li><a href="mailto:info@pyladies.com?subject=Hello" id="contact-link">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+
+
+    {% block full %}
+
+    {% endblock %}
+
+
+    <div class="uk-container uk-container-center">
+        <div class="uk-grid padding-30">
+            <div class="uk-width-medium-2-3 uk-width-small-1-1">
+                {% block content %}
+
+                {% endblock %}
+            </div>
+            <div class="uk-width-medium-1-3 uk-width-small-1-1 uk-hidden-small">
+                {% block sidebar %}
+                <h3>Recent tweets</h3>
+                <div class="twitter-widget">                    
+                    <div id="twitter_feed">
+                        <div id="chapter_tweets"><a class="twitter-timeline" data-dnt="true" href="https://twitter.com/PyLadies_pdx/pyladies-chapters" data-widget-id="301894449183735808">Tweets from @PyLadies_pdx/pyladies-chapters</a>
+                            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Upcoming Meetups</h3>
+                <div id="upcomingMeetupsList">
+                </div>
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+        
+    <div class="footer">
+        <div class="uk-container uk-container-center uk-text-center-small">
+            <div class="uk-grid">
+                <div class="uk-width-medium-3-10 uk-width-small-1-1 uk-margin-bottom">
+                    <img src="{{ get_asset('images/pyladies-logo-blue-flat.png') }}" class="footer-logo">
+                </div>
+                <div class="uk-width-medium-4-10 uk-width-small-1-1 uk-margin-bottom">
+                    <div id="mc_embed_signup">
+                        <form action="http://pyladies.us2.list-manage1.com/subscribe/post?u=9d20e0bc6bc0e88a076738c6f&amp;id=23e4f35e45" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate uk-form" target="_blank" novalidate>
+                            <p>Subscribe to our newsletter!</p>
+                            <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
+                            <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button uk-button">
+                        </form>
+                    </div>
+                </div>
+                <div class="uk-width-medium-3-10 uk-width-small-1-1 uk-margin-bottom">
+                    <ul class=" footer-social">
+                        <li><a href="https://plus.google.com/communities/108807002736066163985"><i class="uk-icon-google-plus"></i></a></li>
+                        <li><a href="http://github.com/pyladies"><i class="uk-icon-github"></i></a></li>
+                        <li><a href="https://twitter.com/pyladies"><i class="uk-icon-twitter"></i></a></li>
+                        <li><a href="{{ get_url('feed.xml', true)}}"><i class="uk-icon-rss"></i></a></li>
+                    </ul>
+                    <p class="footer-rights">2007 - {{ None|date('%Y') }} PyLadies. All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-36930002-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+
+    </script>
+
+
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="{{ get_asset('js/uikit.min.js') }}"></script>
+</body>
+</html>

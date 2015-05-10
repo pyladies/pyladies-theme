@@ -1,0 +1,15 @@
+{% extends "site-ui.html" %}
+{% block title %}Blog{% endblock %}
+{% block content %}
+<h1>Blog</h1>
+    <article>
+        {% for post in posts %}
+            {% if not 'resources' in post.category and not 'codeconduct' in post.category %}
+                <h2><a href="{{ get_url(post.url) }}">{{ post.title }}</a></h2>
+                <time pubdate datetime="{{ post.timestamp|date('%Y-%m-%d') }}">{{ post.date }}</time>
+                <p>{{ post.excerpt }} </p>
+                <a href="{{ get_url(post.url) }}" class='more-link'>Read more &rarr;</a>
+            {% endif %}
+        {% endfor %}
+    </article>
+{% endblock %}

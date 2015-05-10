@@ -1,0 +1,179 @@
+html {
+  font: normal 16px "Lato", sans-serif;
+  line-height: 1.4;
+  font-weight: 300;
+  background: #FFFFFF;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Lato", sans-serif;
+}
+
+.padding-30 {
+  padding: 30px 0px;
+}
+
+time {
+  color: #888;
+  font-style: italic;
+}
+
+.uk-button-primary {
+  background-color: #29ABE2;
+}
+.uk-button-primary:hover {
+  background-color: #1a8dbe;
+}
+
+.ribbon {
+  background-color: #FF8700;
+  overflow: hidden;
+  position: absolute;
+  top: 60px;
+  right: -60px;
+  z-index: 999;
+  -moz-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  -moz-box-shadow: 0 0 5px #888;
+  -webkit-box-shadow: 0 0 5px #888;
+}
+.ribbon a {
+  border: 1px solid #faa;
+  color: #fff;
+  display: block;
+  font-weight: bold;
+  font-family: "Lato", sans-serif;
+  margin: 0.05em 0 0.075em 0;
+  padding: 0.5em 3.5em;
+  text-align: center;
+  text-decoration: none;
+}
+.ribbon:hover {
+  color: #fff;
+}
+
+.uk-navbar {
+  height: 100px;
+  background-color: #fff;
+}
+
+.uk-navbar-brand {
+  padding: 10px 0px;
+}
+.uk-navbar-brand img {
+  height: 80px;
+}
+
+.uk-navbar-flip {
+  padding: 25px 0px;
+}
+
+.uk-navbar-nav li a {
+  font-size: 18px;
+  color: #444;
+}
+.uk-navbar-nav li:hover a {
+  background-color: #fff;
+  border-color: transparent;
+  color: #444;
+}
+
+.uk-navbar-nav > li > a {
+  font-family: "Lato", sans-serif;
+}
+
+.footer {
+  background-color: #282560;
+  padding: 50px 0px;
+  color: #fff;
+}
+
+.footer-logo {
+  height: 100px;
+}
+
+.footer-social li {
+  list-style-type: none;
+  display: inline;
+  padding-right: 20px;
+}
+.footer-social li i {
+  font-size: 40px;
+  color: #A8E5FF;
+}
+
+.footer-rights {
+  font-size: 16px;
+  color: #A8E5FF;
+}
+
+.footer #mc_embed_signup .button {
+  background-color: #29ABE2;
+  border-radius: 5px;
+  margin-left: 10px;
+  text-shadow: none;
+}
+.footer #mc_embed_signup .button:hover {
+  background-color: #1a8dbe;
+  color: #fff;
+}
+.footer #mc_embed_signup .email {
+  padding: 10px;
+  width: 250px;
+  height: 40px;
+}
+.footer #mc_embed_signup p {
+  font-size: 24px;
+  color: #A8E5FF;
+}
+
+.slider {
+  height: 420px;
+}
+.slider h1 {
+  font-size: 50px;
+}
+.slider .uk-overlay-panel {
+  padding: 0px 150px;
+}
+.slider p {
+  font-size: 28px;
+}
+
+.height100 {
+  height: 100%;
+}
+
+.slider .uk-overlay-background {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.blog-posts {
+  padding: 30px 0px;
+}
+.blog-posts .uk-article-title {
+  font-size: 24px;
+  color: #29ABE2;
+}
+.blog-posts .uk-article-meta {
+  font-size: 16px;
+}
+
+.twitter-widget {
+  padding: 0px 20px;
+}
+
+.chapter-location {
+  border: 2px solid #c4c4c4;
+}
+.chapter-location a {
+  color: #646464;
+}
+.chapter-location i {
+  font-size: 30px;
+  margin-right: 10px;
+}

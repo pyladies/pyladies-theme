@@ -1,0 +1,14 @@
+{% extends "site-ui.html" %}
+{% block title %}Code of Conduct{% endblock %}
+{% block content %}
+
+{% for post in posts %}
+    {% if 'codeconduct' in post.category %}
+    <h1>{{ post.title }}</h1>
+        <article>
+            <p>{{ post.content }}</p>
+        </article>
+    {% endif %}
+{% endfor %}
+
+{% endblock %}
