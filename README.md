@@ -7,7 +7,7 @@ A PyLadies theme for non-documentation sites
 - [Sass](http://sass-lang.com/)
 - [Gulp](http://gulpjs.com/)
 
-## To start edit: 
+## To start editing: 
 
 - Open your terminal
 - Run `npm install`, this will install all the necesarry Gulp plugins 
