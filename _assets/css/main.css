@@ -1,3 +1,22 @@
+* {
+  margin: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+.wrapper {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -100px;
+}
+
+.footer, .push {
+  min-height: 100px;
+}
+
 html {
   font: normal 16px "Lato", sans-serif;
   line-height: 1.4;
@@ -20,6 +39,10 @@ h1, h2, h3, h4, h5, h6 {
 time {
   color: #888;
   font-style: italic;
+}
+
+em, a {
+  color: #FF8700;
 }
 
 .uk-button-primary {
@@ -76,10 +99,11 @@ time {
   font-size: 18px;
   color: #444;
 }
-.uk-navbar-nav li:hover a {
-  background-color: #fff;
+.uk-navbar-nav li:hover > a {
+  background-color: #29ABE2;
   border-color: transparent;
-  color: #444;
+  color: #fff;
+  border-radius: 5px !important;
 }
 
 .uk-navbar-nav > li > a {
@@ -90,6 +114,11 @@ time {
   background-color: #282560;
   padding: 50px 0px;
   color: #fff;
+}
+@media (max-width: 767px) {
+  .footer {
+    padding: 20px 0px;
+  }
 }
 
 .footer-logo {
@@ -116,6 +145,7 @@ time {
   border-radius: 5px;
   margin-left: 10px;
   text-shadow: none;
+  height: 40px;
 }
 .footer #mc_embed_signup .button:hover {
   background-color: #1a8dbe;
@@ -152,6 +182,10 @@ time {
   background: rgba(0, 0, 0, 0.3);
 }
 
+.blog, .resources {
+  padding: 30px;
+}
+
 .blog-posts {
   padding: 30px 0px;
 }
@@ -163,12 +197,9 @@ time {
   font-size: 16px;
 }
 
-.twitter-widget {
-  padding: 0px 20px;
-}
-
 .chapter-location {
   border: 2px solid #c4c4c4;
+  min-height: 230px;
 }
 .chapter-location a {
   color: #646464;
@@ -176,4 +207,51 @@ time {
 .chapter-location i {
   font-size: 30px;
   margin-right: 10px;
+}
+
+#upcomingMeetupsList {
+  background-color: #fefefe;
+  height: 400px;
+  position: relative;
+  overflow: auto;
+  line-height: 1em;
+  font-size: 0.9em;
+  word-wrap: break-word !important;
+  border: 1px solid #949494;
+  margin-bottom: 40px;
+  border-radius: 5px;
+}
+#upcomingMeetupsList ul {
+  padding: 0;
+}
+#upcomingMeetupsList li {
+  padding: 10px;
+  width: 100%;
+  overflow: auto;
+  border-bottom: 1px solid #949494;
+  list-style-type: none;
+}
+#upcomingMeetupsList .meetup_group_icon {
+  float: left;
+  max-width: 60px;
+  max-height: 60px;
+  border-radius: 8px;
+  margin: 10px 20px;
+}
+#upcomingMeetupsList .meetup_listing_group {
+  font-size: 1.4em;
+  font-variant: small-caps;
+  padding: 6px 0;
+  margin: 0;
+}
+#upcomingMeetupsList .meetup_listing_event_title {
+  font-size: 1.1em;
+  padding-bottom: 4px;
+  margin: 0;
+}
+#upcomingMeetupsList .meetup_event_date {
+  line-height: 1.2em;
+  padding-left: 10px;
+  padding-bottom: 6px;
+  margin: 0;
 }

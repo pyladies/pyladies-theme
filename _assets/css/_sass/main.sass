@@ -16,6 +16,22 @@ $fourth-color: #141414
            General
 ////////////////////////////////
 
+* 
+	margin: 0
+
+html, body 
+	height: 100%
+
+.wrapper 
+	min-height: 100%
+	height: auto !important
+	height: 100%
+	margin: 0 auto -100px
+
+.footer, .push 
+	min-height: 100px
+
+
 html
 	font: normal 16px 'Lato', sans-serif
 	line-height: 1.4
@@ -34,6 +50,10 @@ h1, h2, h3, h4, h5, h6
 time 
 	color: #888
 	font-style: italic
+	
+em, a 
+	color: $secondary-color
+
 
 ////////////////////////////////
            Buttons
@@ -97,11 +117,11 @@ time
 		a 
 			font-size: 18px
 			color: $dark-text
-		&:hover
-			a 
-				background-color: #fff
-				border-color: transparent
-				color: $dark-text
+		&:hover > a
+			background-color: $primary-color
+			border-color: transparent
+			color: $clear-text
+			border-radius: 5px !important
 
 .uk-navbar-nav > li > a
 	font-family: "Lato", sans-serif
@@ -114,6 +134,9 @@ time
 	background-color: $third-color
 	padding: 50px 0px
 	color: $clear-text
+	
+	@media (max-width: 767px) 
+		padding: 20px 0px
 
 .footer-logo
 	height: 100px
@@ -139,6 +162,7 @@ time
 			border-radius: 5px
 			margin-left: 10px
 			text-shadow: none
+			height: 40px
 			&:hover
 				background-color: darken($primary-color, 10%)
 				color: $clear-text
@@ -175,6 +199,8 @@ time
            Blog Posts
 ////////////////////////////////
 
+.blog, .resources 
+	padding: 30px
 
 .blog-posts
 	padding: 30px 0px
@@ -191,16 +217,13 @@ time
            Twitter Widget
 ////////////////////////////////
 
-.twitter-widget
-	padding: 0px 20px
-
-
 ////////////////////////////////
         Locations
 ////////////////////////////////
 
 .chapter-location 
 	border: 2px solid #c4c4c4
+	min-height: 230px 
 
 	a 
 		color: #646464
@@ -208,6 +231,61 @@ time
 	i 
 		font-size: 30px
 		margin-right: 10px
+
+
+////////////////////////////////
+        Meetup Widget
+////////////////////////////////
+
+#upcomingMeetupsList 
+	background-color: #fefefe
+	height: 400px
+	position: relative
+	overflow: auto
+	line-height: 1em
+	font-size: 0.9em
+	word-wrap: break-word !important
+	border: 1px solid #949494
+	margin-bottom: 40px
+	border-radius: 5px
+	
+	ul 
+		padding: 0
+	
+	li 
+		padding: 10px
+		width: 100%
+		overflow: auto
+		border-bottom: 1px solid #949494
+		list-style-type: none
+		
+	.meetup_group_icon 
+		float: left
+		max-width: 60px
+		max-height: 60px
+		border-radius: 8px
+		margin: 10px 20px
+		
+	.meetup_listing_group 
+		font-size: 1.4em
+		font-variant: small-caps
+		padding: 6px 0
+		margin: 0
+	
+	.meetup_listing_event_title 
+		font-size: 1.1em
+		padding-bottom: 4px
+		margin: 0
+	
+	.meetup_event_date 
+		line-height: 1.2em
+		padding-left: 10px
+		padding-bottom: 6px
+		margin: 0
+
+
+
+
 
 
 

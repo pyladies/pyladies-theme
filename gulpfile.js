@@ -15,7 +15,7 @@ var gulp = require('gulp'),
 
 // Styles
 gulp.task('styles', function() {
-  return sass('_assets/css/_sass/*.sass', { style: 'expanded' })
+  return sass('_assets/css/_sass/main.sass', { style: 'expanded' })
   	.pipe(plumber())
   	.pipe(autoprefixer({browsers: ['last 2 version']}))
     .pipe(gulp.dest('_assets/css/'))
@@ -36,6 +36,6 @@ gulp.task('default', ['clean'], function() {
 gulp.task('watch', function() {
  
   // Watch .sass files
-  gulp.watch('_assets/css/_sass/*.sass', ['styles']);
+  gulp.watch('_assets/css/_sass/main.sass', ['styles']);
  
 });
